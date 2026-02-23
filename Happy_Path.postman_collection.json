@@ -1,0 +1,142 @@
+{
+	"info": {
+		"_postman_id": "hp-001",
+		"name": "Happy Path",
+		"description": "Colección de requests exitosos para DummyJSON API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1. Listar recurso principal (Products)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{baseURL}}/{{resource}}",
+					"host": ["{{baseURL}}"],
+					"path": ["{{resource}}"]
+				}
+			}
+		},
+		{
+			"name": "2. Detalle por ID",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{baseURL}}/{{resource}}/{{id}}",
+					"host": ["{{baseURL}}"],
+					"path": ["{{resource}}", "{{id}}"]
+				}
+			}
+		},
+		{
+			"name": "3. Búsqueda",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{baseURL}}/{{resource}}/search?q={{query}}",
+					"host": ["{{baseURL}}"],
+					"path": ["{{resource}}", "search"],
+					"query": [
+						{
+							"key": "q",
+							"value": "{{query}}"
+						}
+					]
+				}
+			}
+		},
+		{
+			"name": "4. Filtro avanzado (sortBy + order + select)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{baseURL}}/{{resource}}?sortBy=price&order=asc&select=title,price,rating",
+					"host": ["{{baseURL}}"],
+					"path": ["{{resource}}"],
+					"query": [
+						{
+							"key": "sortBy",
+							"value": "price"
+						},
+						{
+							"key": "order",
+							"value": "asc"
+						},
+						{
+							"key": "select",
+							"value": "title,price,rating"
+						}
+					]
+				}
+			}
+		},
+		{
+			"name": "5. Paginación (limit + skip)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{baseURL}}/{{resource}}?limit=5&skip=10",
+					"host": ["{{baseURL}}"],
+					"path": ["{{resource}}"],
+					"query": [
+						{
+							"key": "limit",
+							"value": "5"
+						},
+						{
+							"key": "skip",
+							"value": "10"
+						}
+					]
+				}
+			}
+		},
+		{
+			"name": "6. Segundo recurso (Users)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{baseURL}}/{{secondResource}}",
+					"host": ["{{baseURL}}"],
+					"path": ["{{secondResource}}"]
+				}
+			}
+		}
+	]
+}
